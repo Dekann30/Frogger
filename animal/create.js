@@ -111,19 +111,14 @@ longv.map(i => i.scale = .5)
 
 
 
-won = this.add.zone(350,35).setSize(700,33)
-this.physics.world.enable(won)
-won.body.moves = false
-won.body.debugBodyColor = 0x00ff00
+winzone = this.add.zone(350,35).setSize(700,33)
+this.physics.world.enable(winzone)
+winzone.body.moves = false
+winzone.body.debugBodyColor = 0x00ff00
 
-function winning(){
-    console.log('you won!')
-    console.log(won)
-    // let text = this.add.text(350,35, 'Congrats!', {font: ' 65px Arial', fill: '#ff0044', align: 'center'})
-    // console.log(text)
-}
+won = this.physics.add.overlap(animal,winzone,winning)
 
-this.physics.add.overlap(animal,won,winning)
+
 this.add.rectangle(75,0,90,65, 0x00007f)
 lifecount = this.add.text(42,2, lives + ' Lives', {
     fontFamily: 'Anton',
@@ -150,6 +145,24 @@ gameover = this.add.text(269,2, 'Game Over', {
     align: 'center'} )
 
 gameover.setVisible(false)
+
+endzone = this.add.text(269,2, '! You Won !', {
+    fontFamily: 'Anton',
+    fontSize: "23px", 
+    backgroundColor: '#ffffff',
+    color: '#00007f',
+    align: 'center'} )
+
+endzone.setVisible(false)
+
+message = this.add.text(258,2, '! RUUUUUUNN !', {
+    fontFamily: 'Anton',
+    fontSize: "23px", 
+    backgroundColor: '#ffffff',
+    color: '#00007f',
+    align: 'center'} )
+
+message.setVisible(true)
 
 }
 
