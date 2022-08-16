@@ -1,20 +1,23 @@
 let animal
 let cursors
-let animal2
+let tileset
+let map
+let firetruck
+let bus
+let bus2
 
 function create(){
-    animal = this.physics.add.sprite(10,10, 'duck')
-    animal2 = this.physics.add.sprite(100,100, 'duck')
-    console.log(animal)
+    // background map
+    this.add.image(350,209, 'mappic')
+    
+    //player animal
+    animal = this.physics.add.sprite(335,680, 'duck')
     animal.scale = 1
-    animal2.setTint(0xff0000)
     animal.setCollideWorldBounds(true)
-    animal2.setPushable(false)
     cursors = this.input.keyboard.createCursorKeys()
-    console.log(cursors)
 
-
-
+    console.log(animal.body)
+    //animal.onWorldBounds=0?
 
     this.anims.create({
         key:"left",
@@ -52,6 +55,39 @@ this.anims.create({
     repeat: -1
 });
 
-this.physics.add.collider(animal, animal2, collide)
+firetruck = this.physics.add.sprite(-150,200, 'firetruck')
+firetruck.body.immovable = true
+
+console.log(firetruck.body)
+
+this.anims.create({
+    key: 'move',
+    frames: this.anims.generateFrameNames('firetruck', {start:0, end:1}),
+    frameRate: 100,
+    repeat: -1
+})
+
+firetruck.play({key: 'move',
+delay: Math.random()*3000})
+bus2 = this.physics.add.sprite(-150,150, 'bus')
+bus = this.physics.add.sprite(-150,350, 'bus')
+this.anims.create({
+    key:'drive',
+    frames: this.anims.generateFrameNames('bus', {start:0, end:1}),
+    frameRate: 100,
+    repeat:-1
+})
+
+bus.flipX=true
+
+bus.play({key:'drive'})
+bus2.play({key: 'drive', loop: true})
+console.log(bus.play)
+
+this.physics.add.collider(animal, firetruck, collide)
+
+
+
+
 
 }
