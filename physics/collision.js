@@ -4,10 +4,6 @@ function collide(){
     animal.x = 335
     animal.y = 680
     animal.body.moves = true
-
-    // for (vehicle of vehicles){
-    //     vehicle.x -=5
-    // }
 }
 
 
@@ -16,13 +12,41 @@ function moveCars(){
 
     for (const vehicle of vehicles){
         if (vehicle.flipX == false){
-            vehicle.setTint(0x00ff00)
+            vehicle.x-= (1.3)
+            if (vehicle.x < -100){
+                vehicle.x = 750
+            }
+            
         }
-        vehicle.x += (2)
-        if(vehicle.x > 800){
-            vehicle.x = -150
+        else if(vehicle.flipX == true){
+            vehicle.x += (1.3)
+                if(vehicle.x > 800){
+                    vehicle.x = -150
+                }
         }
+        
+        
     }
     
 
+}
+
+function overlap(){
+    for (const vehicle of vehicles){
+        if(vehicles.find(vehicle => vehicle == vehicle)){
+            // let index=vehicles.map(vehicle => vehicle == vehicle).indexOf()
+            // console.log(index)
+            // vehicle.setVisible(false)
+        }
+    //     
+    }
+    // console.log('arrrrgggg')
+}
+
+function winning(){
+    console.log('you won!')
+    let canvas = document.querySelector('#canvas')
+    canvas.font = '32 Arial'
+    canvas.fillText('Congrats!!', 350, 30)
+    
 }

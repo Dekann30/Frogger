@@ -2,20 +2,15 @@ let animal
 let cursors
 let tileset
 let map
-let firetruck
-let bus
-let copc
-let bluec
-let redc
-let greenc
 let vehicles
+let text
 
 function create(){
     // background map
     this.add.image(350,209, 'mappic')
     
     //player animal
-    animal = this.physics.add.sprite(335,680, 'duck')
+    animal = this.physics.add.sprite(335,790, 'duck')
     animal.scale = 1
     animal.setCollideWorldBounds(true)
     cursors = this.input.keyboard.createCursorKeys()
@@ -59,36 +54,84 @@ this.anims.create({
 });
 
 //Render Vehicles 
-firetruck = this.physics.add.sprite(-150,200, 'firetruck')
-firetruck.body.immovable = true
+//From Top -1
+rc5 = this.physics.add.sprite(350,126, 'redc')
+gc4 = this.physics.add.sprite(150,126, 'greenc')
+bc4 = this.physics.add.sprite(550,126, 'bluec')
+cc4 = this.physics.add.sprite(80,126, 'copc')
+cc5 = this.physics.add.sprite(10,126, 'copc')
+cc6 = this.physics.add.sprite(-150,126, 'copc')
 
-bus = this.physics.add.sprite(-150,350, 'bus')
-bus.body.immovable=true
+//-2
+firetruck = this.physics.add.sprite(595,190, 'firetruck')
+ft2 = this.physics.add.sprite(595,190, 'firetruck')
+bluec = this.physics.add.sprite(250,200, 'bluec')
+bc3 = this.physics.add.sprite(350,179, 'bluec')
+copc = this.physics.add.sprite(50,200, 'copc')
+redc = this.physics.add.sprite(450,200, 'redc')
+rc3 = this.physics.add.sprite(100,176, 'redc')
+rc4 = this.physics.add.sprite(-150,176, 'redc')
+greenc = this.physics.add.sprite(150,200, 'greenc')
 
-bluec = this.physics.add.sprite(-250,200, 'bluec')
-bluec.body.immovable = true
+//-3
+cc3 = this.physics.add.sprite(750,285, 'copc')
+rc2 = this.physics.add.sprite(150,285, 'redc')
+gc2 = this.physics.add.sprite(550,285, 'greenc')
+gc3 = this.physics.add.sprite(350,285, 'greenc')
 
-copc = this.physics.add.sprite(-150,200, 'copc')
-copc.body.immovable = true
-
-redc = this.physics.add.sprite(-150,200, 'redc')
-redc.body.immovable = true
-
-greenc = this.physics.add.sprite(-150,200, 'greenc')
-greenc.body.immovable = true
-
-vehicles = [bus, firetruck, redc, greenc, bluec, copc]
+//-4
+bus = this.physics.add.sprite(150,350, 'bus')
+bus2 = this.physics.add.sprite(550,350, 'bus')
+bc2 = this.physics.add.sprite(650,335, 'bluec')
+cc2 = this.physics.add.sprite(450,335, 'copc')
 
 
 
-bus.flipX=true
+
+vehicles = [bus, bus2, firetruck, redc, rc2, rc3, rc4, rc5, greenc, gc2, bluec, bc2, bc3, gc3, copc, cc2, cc3, ft2, gc4, bc4, cc4, cc5, cc6]
+
+for (const vehicle of vehicles){
+    vehicle.body.immovable = true
+    vehicle.scale =.9
+    vehicle.body.onOverlap = true
+
+    console.log(this.physics.add.overlap)
+    
+    
+    // if(vehicle.body.touching.left === true){
+    //     vehicle.body.onOverlap = true
+    // }
+    // if (vehicle.body.onOverlap === true){
+    //     overlap()
+    // }
+    
+}
+
+won = this.add.zone(350,50).setSize(700,33)
+this.physics.world.enable(won)
+won.body.moves = false
+won.body.debugBodyColor = 0x00ff00
+
+this.physics.add.overlap(animal,won,winning)
+
+for (const vehicle of vehicles){
+    this.physics.add.overlap(vehicle, vehicles, overlap, null, true)
+}
+
+
+console.log(vehicles)
+
+// text = this.add.text(350,50, 'Congrats!', {font: '32px Courier', fill: '#000000'})
+
+flip = [bus, bus2, bc3,rc3,rc4,ft2,rc5,gc4, bc4,cc4, cc5,cc6]
+flip.map(i => i.flipX=true)
+
 
 
 
 
 
 this.physics.add.collider(animal, vehicles, collide)
-this.physics.add.overlap(vehicles, collide)
 
 
 
