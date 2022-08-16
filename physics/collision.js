@@ -19,4 +19,5 @@ function moveCars(){
     if(bus.x > 800){
         bus.x=-150
     }
+    redc.x +=1
 }

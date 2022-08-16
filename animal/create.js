@@ -19,6 +19,7 @@ function create(){
     console.log(animal.body)
     //animal.onWorldBounds=0?
 
+    //animal spritesheet movements
     this.anims.create({
         key:"left",
         frames: this.anims.generateFrameNames('duck', { start: 12, end: 17 }),
@@ -55,34 +56,33 @@ this.anims.create({
     repeat: -1
 });
 
+//Render Vehicles 
 firetruck = this.physics.add.sprite(-150,200, 'firetruck')
 firetruck.body.immovable = true
 
-console.log(firetruck.body)
-
-this.anims.create({
-    key: 'move',
-    frames: this.anims.generateFrameNames('firetruck', {start:0, end:1}),
-    frameRate: 100,
-    repeat: -1
-})
-
-firetruck.play({key: 'move',
-delay: Math.random()*3000})
 bus2 = this.physics.add.sprite(-150,150, 'bus')
 bus = this.physics.add.sprite(-150,350, 'bus')
-this.anims.create({
-    key:'drive',
-    frames: this.anims.generateFrameNames('bus', {start:0, end:1}),
-    frameRate: 100,
-    repeat:-1
-})
+bus.body.immovable=true
+
+bluec = this.physics.add.sprite(50,200, 'bluec')
+bluec.body.immovable = true
+
+copc = this.physics.add.sprite(150,200, 'copc')
+copc.body.immovable = true
+
+redc = this.physics.add.sprite(250,200, 'redc')
+redc.body.immovable = true
+
+greenc = this.physics.add.sprite(350,200, 'greenc')
+greenc.body.immovable = true
+
+
 
 bus.flipX=true
 
-bus.play({key:'drive'})
-bus2.play({key: 'drive', loop: true})
-console.log(bus.play)
+
+
+
 
 this.physics.add.collider(animal, firetruck, collide)
 
