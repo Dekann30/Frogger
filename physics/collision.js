@@ -24,23 +24,10 @@ function moveCars(){
                     vehicle.x = -150
                 }
         }
-        
-        
-    }
     
 
 }
 
-function overlap(){
-    for (const vehicle of vehicles){
-        if(vehicles.find(vehicle => vehicle == vehicle)){
-            // let index=vehicles.map(vehicle => vehicle == vehicle).indexOf()
-            // console.log(index)
-            // vehicle.setVisible(false)
-        }
-    //     
-    }
-    // console.log('arrrrgggg')
 }
 
 function winning(){
