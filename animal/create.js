@@ -4,7 +4,11 @@ let tileset
 let map
 let firetruck
 let bus
-let bus2
+let copc
+let bluec
+let redc
+let greenc
+let vehicles
 
 function create(){
     // background map
@@ -15,8 +19,6 @@ function create(){
     animal.scale = 1
     animal.setCollideWorldBounds(true)
     cursors = this.input.keyboard.createCursorKeys()
-
-    console.log(animal.body)
     //animal.onWorldBounds=0?
 
     //animal spritesheet movements
@@ -60,21 +62,22 @@ this.anims.create({
 firetruck = this.physics.add.sprite(-150,200, 'firetruck')
 firetruck.body.immovable = true
 
-bus2 = this.physics.add.sprite(-150,150, 'bus')
 bus = this.physics.add.sprite(-150,350, 'bus')
 bus.body.immovable=true
 
-bluec = this.physics.add.sprite(50,200, 'bluec')
+bluec = this.physics.add.sprite(-250,200, 'bluec')
 bluec.body.immovable = true
 
-copc = this.physics.add.sprite(150,200, 'copc')
+copc = this.physics.add.sprite(-150,200, 'copc')
 copc.body.immovable = true
 
-redc = this.physics.add.sprite(250,200, 'redc')
+redc = this.physics.add.sprite(-150,200, 'redc')
 redc.body.immovable = true
 
-greenc = this.physics.add.sprite(350,200, 'greenc')
+greenc = this.physics.add.sprite(-150,200, 'greenc')
 greenc.body.immovable = true
+
+vehicles = [bus, firetruck, redc, greenc, bluec, copc]
 
 
 
@@ -84,7 +87,8 @@ bus.flipX=true
 
 
 
-this.physics.add.collider(animal, firetruck, collide)
+this.physics.add.collider(animal, vehicles, collide)
+this.physics.add.overlap(vehicles, collide)
 
 
 
