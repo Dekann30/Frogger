@@ -36,6 +36,6 @@ else
 
 moveCars()
 
-
+losing()
 
 }

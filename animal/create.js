@@ -3,9 +3,9 @@ let cursors
 let tileset
 let map
 let vehicles
-let text
-let hey
 let won
+let text
+let lifecount
 
 function create(){
     // background map
@@ -98,13 +98,10 @@ for (const vehicle of vehicles){
     vehicle.body.onOverlap = true
 }
 
-
-
-this.physics.add.overlap(animal,won,winning)
 this.physics.add.collider(animal, vehicles, collide)
 
 
-// text = this.add.text(350,50, 'Congrats!', {font: '32px Courier', fill: '#000000'})
+
 
 flip = [bus, bus2, bc3,rc3,rc4,ft2,rc5,gc4, bc4,cc4, cc5,cc6]
 flip.map(i => i.flipX=true)
@@ -112,15 +109,48 @@ flip.map(i => i.flipX=true)
 longv = [bus,bus2,firetruck,ft2]
 longv.map(i => i.scale = .5)
 
-won = this.add.zone(350,50).setSize(700,33)
+
+
+won = this.add.zone(350,35).setSize(700,33)
 this.physics.world.enable(won)
 won.body.moves = false
 won.body.debugBodyColor = 0x00ff00
 
+function winning(){
+    console.log('you won!')
+    console.log(won)
+    // let text = this.add.text(350,35, 'Congrats!', {font: ' 65px Arial', fill: '#ff0044', align: 'center'})
+    // console.log(text)
+}
+
+this.physics.add.overlap(animal,won,winning)
+this.add.rectangle(75,0,90,65, 0x00007f)
+lifecount = this.add.text(42,2, lives + ' Lives', {
+    fontFamily: 'Anton',
+    fontSize: "23px", 
+    backgroundColor: '#ffffff',
+    color: '#00007f',
+    align: 'center'} )
+
+this.add.rectangle(605,0,90,65,0x00007f)
+lifecount2 = this.add.text(572,2, lives + ' Lives', {
+    fontFamily: 'Anton',
+    fontSize: "23px", 
+    backgroundColor: '#ffffff',
+    color: '#00007f',
+    align: 'center'} )
 
 
+this.add.rectangle(315,0,190,65,0x00007f)
+gameover = this.add.text(269,2, 'Game Over', {
+    fontFamily: 'Anton',
+    fontSize: "23px", 
+    backgroundColor: '#ffffff',
+    color: '#00007f',
+    align: 'center'} )
 
-
-
+gameover.setVisible(false)
 
 }
+
+

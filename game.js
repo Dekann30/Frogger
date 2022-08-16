@@ -4,7 +4,6 @@ const config = {
     height: 415,
     parent: 'canvas',
     backgroundColor: "#007b5f",
-    pixelArt: true,
     physics:{
         default:"arcade",
         arcade:{
