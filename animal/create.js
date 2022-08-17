@@ -120,16 +120,16 @@ won = this.physics.add.overlap(animal,winzone,winning)
 
 
 this.add.rectangle(75,0,90,65, 0x00007f)
-lifecount = this.add.text(42,2, lives + ' Lives', {
-    fontFamily: 'Anton',
+lifecount = this.add.text(36,2, lives + ' Lives', {
+    fontFamily: 'Aboreto',
     fontSize: "23px", 
     backgroundColor: '#ffffff',
     color: '#00007f',
     align: 'center'} )
 
 this.add.rectangle(605,0,90,65,0x00007f)
-lifecount2 = this.add.text(572,2, lives + ' Lives', {
-    fontFamily: 'Anton',
+lifecount2 = this.add.text(566,2, lives + ' Lives', {
+    fontFamily: 'Aboreto',
     fontSize: "23px", 
     backgroundColor: '#ffffff',
     color: '#00007f',
@@ -137,8 +137,8 @@ lifecount2 = this.add.text(572,2, lives + ' Lives', {
 
 
 this.add.rectangle(315,0,190,65,0x00007f)
-gameover = this.add.text(269,2, 'Game Over', {
-    fontFamily: 'Anton',
+gameover = this.add.text(247,2, 'Game Over', {
+    fontFamily: 'Aboreto',
     fontSize: "23px", 
     backgroundColor: '#ffffff',
     color: '#00007f',
@@ -146,8 +146,8 @@ gameover = this.add.text(269,2, 'Game Over', {
 
 gameover.setVisible(false)
 
-endzone = this.add.text(269,2, '! You Won !', {
-    fontFamily: 'Anton',
+endzone = this.add.text(240,2, '! You Won !', {
+    fontFamily: 'Aboreto',
     fontSize: "23px", 
     backgroundColor: '#ffffff',
     color: '#00007f',
@@ -155,14 +155,40 @@ endzone = this.add.text(269,2, '! You Won !', {
 
 endzone.setVisible(false)
 
-message = this.add.text(258,2, '! RUUUUUUNN !', {
-    fontFamily: 'Anton',
+message = this.add.text(229,2, '! RUUUUUNN !', {
+    fontFamily: 'Aboreto',
     fontSize: "23px", 
     backgroundColor: '#ffffff',
     color: '#00007f',
     align: 'center'} )
 
 message.setVisible(true)
+
+
+// console.log(this.input)
+this.input.once('pointerdown', function(event){
+    this.scene.restart()
+}, this)
+
+// console.log(hey)
+
+// let restartbtn = document.querySelector('#restart')
+
+// restartbtn.on('click', (event)=>{
+//     console.log('click')
+//     this.scene.restart()
+// }, this.game)
+// function click(event){
+//     console.log('click')
+    
+// }
+
+// console.log(restartbtn.eventNames)
+// restartbtn.onClick() = function(){
+
+// }
+
+// button = this.add.button(95, 400, 'button', click, this, 2, 1, 0);
 
 }
 

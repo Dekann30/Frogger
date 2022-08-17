@@ -34,7 +34,7 @@ else
     animal.anims.play('turn');
 }
 
-// moveCars()
+moveCars()
 
 losing()
 
