@@ -1,4 +1,4 @@
-let lives = 2
+let lives = 5
 
 function loseLife(){
     lives -= 1
