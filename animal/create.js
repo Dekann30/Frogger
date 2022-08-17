@@ -102,7 +102,7 @@ this.physics.add.collider(animal, vehicles, collide)
 
 
 
-
+// Flips Sprites and Scales larger vehicles
 flip = [bus, bus2, bc3,rc3,rc4,ft2,rc5,gc4, bc4,cc4, cc5,cc6]
 flip.map(i => i.flipX=true)
 
@@ -110,7 +110,7 @@ longv = [bus,bus2,firetruck,ft2]
 longv.map(i => i.scale = .5)
 
 
-
+// Designate Wining Area
 winzone = this.add.zone(350,35).setSize(700,33)
 this.physics.world.enable(winzone)
 winzone.body.moves = false
@@ -119,6 +119,7 @@ winzone.body.debugBodyColor = 0x00ff00
 won = this.physics.add.overlap(animal,winzone,winning)
 
 
+// Adds Score and Notification Areas and Text to the Screen
 this.add.rectangle(75,0,90,65, 0x00007f)
 lifecount = this.add.text(36,2, lives + ' Lives', {
     fontFamily: 'Aboreto',
@@ -165,29 +166,25 @@ message = this.add.text(229,2, '! RUUUUUNN !', {
 message.setVisible(true)
 
 
-// console.log(this.input)
+// Resets Game on Click of the Screen
 this.input.once('pointerdown', function(event){
     this.scene.restart()
+    lives = 5
+    animal.setVelocity(90)
 }, this)
 
-// console.log(hey)
 
 // let restartbtn = document.querySelector('#restart')
-
 // restartbtn.on('click', (event)=>{
 //     console.log('click')
 //     this.scene.restart()
 // }, this.game)
 // function click(event){
 //     console.log('click')
-    
 // }
-
 // console.log(restartbtn.eventNames)
 // restartbtn.onClick() = function(){
-
 // }
-
 // button = this.add.button(95, 400, 'button', click, this, 2, 1, 0);
 
 }

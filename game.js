@@ -1,7 +1,7 @@
 const config = {
     type: Phaser.AUTO,
     width: 700,
-    height: 415,
+    height: 400,
     parent: 'canvas',
     backgroundColor: "#007b5f",
     physics:{
@@ -34,9 +34,9 @@ const game = new Phaser.Game(config)
 //     $('#canvas').load('#canvas')
 //     this.game.destroy()
 //     new Phaser.Game(config)
-//     // var canvas=document.getElementById("canvas+id");
-//     // // var context=canvas.getContext("2d");
-//     // canvas.clearRect(0,0,canvas.width,canvas.height);
+// var canvas=document.getElementById("canvas+id");
+// var context=canvas.getContext("2d");
+// canvas.clearRect(0,0,canvas.width,canvas.height);
 // }
 
 
